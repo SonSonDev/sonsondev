@@ -1,2 +1,37 @@
-{
-}
+common:
+  loading: "Chargement..."
+
+navbar:
+  logo: "SonSonDev"
+  articles: "Articles"
+  admin: "Admin"
+  logout: "Déconnexion"
+
+home:
+  title: "SonSonDev"
+
+postCard:
+  readMore: "Lire la suite →"
+
+admin:
+  articles: "Articles"
+  published: "Publié"
+  draft: "Brouillon"
+  unpublish: "Dépublier"
+  publish: "Publier"
+  delete: "Supprimer"
+  deleteConfirm: "Supprimer cet article ?"
+  newArticle: "Nouvel article"
+  saved: "Article enregistré !"
+  title: "Titre"
+  slug: "Slug"
+  excerpt: "Extrait"
+  content: "Contenu (Markdown)"
+  saving: "Sauvegarde..."
+  save: "Enregistrer"
+
+login:
+  title: "Connexion"
+  error: "Erreur lors de la connexion Google."
+  loading: "Connexion..."
+  google: "Continuer avec Google"

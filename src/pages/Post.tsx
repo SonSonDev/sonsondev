@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
+import { useTranslation } from 'react-i18next'
 import { fetchPostBySlug } from '../firebase/posts'
 import { Post as PostType } from '../types/post'
+import { formatDate } from '../utils/date'
 import './Post.scss'
 
 export default function Post() {
+  const { t } = useTranslation()
   const { slug } = useParams<{ slug: string }>()
   const navigate = useNavigate()
   const [post, setPost] = useState<PostType | null>(null)
@@ -19,14 +22,10 @@ export default function Post() {
     })
   }, [slug, navigate])
 
-  if (loading) return <p>Chargement...</p>
+  if (loading) return <p>{t('common.loading')}</p>
   if (!post) return null
 
-  const formattedDate = post.createdAt.toLocaleDateString('fr-FR', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  })
+  const formattedDate = formatDate(post.createdAt)
 
   return (
     <article className="post">

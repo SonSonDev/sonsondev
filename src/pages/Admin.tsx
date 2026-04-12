@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { fetchAllPosts, addPost, togglePostPublished, deletePost } from '../firebase/posts'
 import { Post } from '../types/post'
+import { generateSlug } from '../utils/string'
 import './Admin.scss'
 
 export default function Admin() {
+  const { t } = useTranslation()
   const [posts, setPosts] = useState<Post[]>([])
   const [title, setTitle] = useState('')
   const [slug, setSlug] = useState('')
@@ -16,14 +19,6 @@ export default function Admin() {
   const loadPosts = () => fetchAllPosts().then(setPosts)
 
   useEffect(() => { loadPosts() }, [])
-
-  const generateSlug = (value: string) =>
-    value
-      .toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .replace(/\s+/g, '-')
-      .replace(/[^a-z0-9-]/g, '')
 
   const handleTitleChange = (value: string) => {
     setTitle(value)
@@ -51,7 +46,7 @@ export default function Admin() {
   }
 
   const handleDelete = async (id: string) => {
-    if (!confirm('Supprimer cet article ?')) return
+    if (!confirm(t('admin.deleteConfirm'))) return
     await deletePost(id)
     loadPosts()
   }
@@ -60,22 +55,22 @@ export default function Admin() {
     <div className="admin">
       {posts.length > 0 && (
         <section className="admin__list">
-          <h2>Articles</h2>
+          <h2>{t('admin.articles')}</h2>
           <ul>
             {posts.map(post => (
               <li key={post.id} className="admin__item">
                 <div className="admin__item-info">
                   <span className={`admin__badge ${post.published ? 'admin__badge--published' : ''}`}>
-                    {post.published ? 'Publié' : 'Brouillon'}
+                    {post.published ? t('admin.published') : t('admin.draft')}
                   </span>
                   <span className="admin__item-title">{post.title}</span>
                 </div>
                 <div className="admin__item-actions">
                   <button onClick={() => handleToggle(post)}>
-                    {post.published ? 'Dépublier' : 'Publier'}
+                    {post.published ? t('admin.unpublish') : t('admin.publish')}
                   </button>
                   <button className="admin__delete" onClick={() => handleDelete(post.id)}>
-                    Supprimer
+                    {t('admin.delete')}
                   </button>
                 </div>
               </li>
@@ -84,11 +79,11 @@ export default function Admin() {
         </section>
       )}
 
-      <h1>Nouvel article</h1>
-      {success && <p className="admin__success">Article enregistré !</p>}
+      <h1>{t('admin.newArticle')}</h1>
+      {success && <p className="admin__success">{t('admin.saved')}</p>}
       <form className="admin__form" onSubmit={handleSubmit}>
         <label>
-          Titre
+          {t('admin.title')}
           <input
             type="text"
             value={title}
@@ -98,7 +93,7 @@ export default function Admin() {
         </label>
 
         <label>
-          Slug
+          {t('admin.slug')}
           <input
             type="text"
             value={slug}
@@ -108,7 +103,7 @@ export default function Admin() {
         </label>
 
         <label>
-          Extrait
+          {t('admin.excerpt')}
           <input
             type="text"
             value={excerpt}
@@ -118,7 +113,7 @@ export default function Admin() {
         </label>
 
         <label>
-          Contenu (Markdown)
+          {t('admin.content')}
           <textarea
             value={content}
             onChange={e => setContent(e.target.value)}
@@ -133,11 +128,11 @@ export default function Admin() {
             checked={published}
             onChange={e => setPublished(e.target.checked)}
           />
-          Publier
+          {t('admin.publish')}
         </label>
 
         <button type="submit" disabled={saving}>
-          {saving ? 'Sauvegarde...' : 'Enregistrer'}
+          {saving ? t('admin.saving') : t('admin.save')}
         </button>
       </form>
     </div>
