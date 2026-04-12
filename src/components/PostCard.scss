@@ -1,0 +1,40 @@
+@use '../styles/variables' as *;
+
+.post-card {
+  border: 1px solid $color-border;
+  border-radius: $radius;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: box-shadow 0.2s;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  &__date {
+    font-size: 0.85rem;
+    color: $color-text-muted;
+  }
+
+  &__title a {
+    color: $color-text;
+    font-size: 1.25rem;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  &__excerpt {
+    color: $color-text-muted;
+    font-size: 0.95rem;
+  }
+
+  &__link {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+}
