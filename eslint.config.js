@@ -9,6 +9,10 @@ export default tseslint.config(
     plugins: { 'react-hooks': reactHooks },
     rules: {
       ...reactHooks.configs.recommended.rules,
+      'no-trailing-spaces': 'error',
+      'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 0 }],
+      'eol-last': 'error',
+      'comma-dangle': ['error', 'always-multiline'],
     },
-  }
+  },
 )

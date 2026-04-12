@@ -1,0 +1,46 @@
+action:
+  delete: "Supprimer"
+  edit: "Modifier"
+  logout: "Déconnexion"
+  publish: "Publier"
+  readMore: "Lire la suite →"
+  save: "Enregistrer"
+  saving: "Sauvegarde..."
+  signInWithGoogle: "Continuer avec Google"
+  signingIn: "Connexion..."
+  unpublish: "Dépublier"
+
+admin:
+  articles: "Articles"
+  content: "Contenu (Markdown)"
+  publish: "Publier"
+  deleteConfirm: "Supprimer cet article ?"
+  draft: "Brouillon"
+  editArticle: "Modifier l'article"
+  preview: "Aperçu"
+  excerpt: "Extrait"
+  newArticle: "Nouvel article"
+  published: "Publié"
+  saved: "Article enregistré !"
+  actions: "Actions"
+  slug: "Slug"
+  status: "Statut"
+  title: "Titre"
+
+common:
+  loading: "Chargement..."
+
+home:
+  title: "Accueil"
+
+login:
+  error: "Erreur lors de la connexion Google."
+  title: "Connexion"
+
+navbar:
+  admin: "Admin"
+  home: "Accueil"
+  logo: "SonSonDev"
+
+postCard:
+  readMore: "Lire la suite →"

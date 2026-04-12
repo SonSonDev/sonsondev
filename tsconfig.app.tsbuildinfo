@@ -1,1 +1,0 @@
-{"root":["./src/App.tsx","./src/firebase.ts","./src/main.tsx","./src/vite-env.d.ts","./src/components/Navbar.tsx","./src/components/PostCard.tsx","./src/components/ProtectedRoute.tsx","./src/context/AuthContext.tsx","./src/pages/Admin.tsx","./src/pages/Home.tsx","./src/pages/Login.tsx","./src/pages/Post.tsx","./src/types/post.ts"],"version":"5.6.3"}

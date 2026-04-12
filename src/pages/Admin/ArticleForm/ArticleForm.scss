@@ -1,0 +1,122 @@
+@use '../../../styles/variables' as *;
+
+.article-form {
+  max-width: 680px;
+
+  h1 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: $color-text-muted;
+    }
+
+    input, textarea {
+      font-family: $font-sans;
+      font-size: 1rem;
+      padding: 0.6rem 0.75rem;
+      border: 1px solid $color-border;
+      border-radius: $radius;
+      outline: none;
+      transition: border-color 0.2s;
+
+      &:focus {
+        border-color: $color-primary;
+      }
+    }
+
+    textarea {
+      resize: vertical;
+      font-family: $font-mono;
+    }
+  }
+
+  &__checkbox {
+    flex-direction: row !important;
+    align-items: center;
+    gap: 0.5rem !important;
+  }
+
+  &__preview {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid $color-border;
+
+    h2 {
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: $color-text-muted;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__preview-body {
+    h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+    h2, h3 { margin: 1.5rem 0 0.5rem; }
+    p { margin-bottom: 1rem; }
+
+    code {
+      font-family: $font-mono;
+      background: #f3f4f6;
+      padding: 0.2em 0.4em;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 1rem;
+      border-radius: $radius;
+      overflow-x: auto;
+      margin-bottom: 1rem;
+
+      code {
+        background: none;
+        color: inherit;
+        padding: 0;
+      }
+    }
+  }
+
+  &__preview-excerpt {
+    color: $color-text-muted;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    border-left: 3px solid $color-border;
+    padding-left: 0.75rem;
+  }
+
+  button {
+    padding: 0.7rem 1.5rem;
+    background: $color-primary;
+    color: white;
+    border: none;
+    border-radius: $radius;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover:not(:disabled) {
+      background: $color-primary-hover;
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+}

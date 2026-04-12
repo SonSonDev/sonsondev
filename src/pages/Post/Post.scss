@@ -1,4 +1,4 @@
-@use '../styles/variables' as *;
+@use '../../styles/variables' as *;
 
 .post {
   max-width: 680px;
@@ -16,6 +16,33 @@
   &__title {
     font-size: 2rem;
     margin-top: 0.5rem;
+  }
+
+  &__edit {
+    display: inline-block;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    font-size: 0.75rem;
+    color: $color-text-muted;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  &__badge {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    padding: 0.2em 0.6em;
+    border-radius: 99px;
+    background: #f3f4f6;
+    color: $color-text-muted;
+
+    &--published {
+      background: #dcfce7;
+      color: #16a34a;
+    }
   }
 
   &__content {

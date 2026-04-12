@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { Post } from '../types/post'
+import { formatDate } from '../utils/date'
 import './PostCard.scss'
 
 interface Props {
@@ -7,11 +9,8 @@ interface Props {
 }
 
 export default function PostCard({ post }: Props) {
-  const formattedDate = post.createdAt.toLocaleDateString('fr-FR', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  })
+  const { t } = useTranslation()
+  const formattedDate = formatDate(post.createdAt)
 
   return (
     <article className="post-card">
@@ -21,7 +20,7 @@ export default function PostCard({ post }: Props) {
       </h2>
       <p className="post-card__excerpt">{post.excerpt}</p>
       <Link to={`/post/${post.slug}`} className="post-card__link">
-        Lire la suite →
+        {t('action.readMore')}
       </Link>
     </article>
   )
