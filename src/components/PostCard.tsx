@@ -20,7 +20,7 @@ export default function PostCard({ post }: Props) {
       </h2>
       <p className="post-card__excerpt">{post.excerpt}</p>
       <Link to={`/post/${post.slug}`} className="post-card__link">
-        {t('postCard.readMore')}
+        {t('action.readMore')}
       </Link>
     </article>
   )

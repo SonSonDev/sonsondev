@@ -67,10 +67,10 @@ export default function Admin() {
                 </div>
                 <div className="admin__item-actions">
                   <button onClick={() => handleToggle(post)}>
-                    {post.published ? t('admin.unpublish') : t('admin.publish')}
+                    {post.published ? t('action.unpublish') : t('action.publish')}
                   </button>
                   <button className="admin__delete" onClick={() => handleDelete(post.id)}>
-                    {t('admin.delete')}
+                    {t('action.delete')}
                   </button>
                 </div>
               </li>
@@ -132,7 +132,7 @@ export default function Admin() {
         </label>
 
         <button type="submit" disabled={saving}>
-          {saving ? t('admin.saving') : t('admin.save')}
+          {saving ? t('action.saving') : t('action.save')}
         </button>
       </form>
     </div>

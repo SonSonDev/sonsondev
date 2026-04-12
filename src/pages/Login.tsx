@@ -1,11 +1,8 @@
 import { useState } from 'react'
-import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { auth } from '../firebase/index'
+import { signInWithGoogle } from '../firebase/auth'
 import './Login.scss'
-
-const provider = new GoogleAuthProvider()
 
 export default function Login() {
   const { t } = useTranslation()
@@ -18,7 +15,7 @@ export default function Login() {
     setLoading(true)
 
     try {
-      await signInWithPopup(auth, provider)
+      await signInWithGoogle()
       navigate('/admin')
     } catch {
       setError(t('login.error'))
@@ -37,7 +34,7 @@ export default function Login() {
             src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
             alt="Google"
           />
-          {loading ? t('login.loading') : t('login.google')}
+          {loading ? t('action.signingIn') : t('action.signInWithGoogle')}
         </button>
       </div>
     </div>
