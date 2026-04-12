@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { fetchPublishedPosts } from '../firebase/posts'
-import { Post } from '../types/post'
-import PostCard from '../components/PostCard'
+import { fetchPublishedPosts } from '../../firebase/posts'
+import { Post } from '../../types/post'
+import PostCard from '../../components/PostCard'
 import './Home.scss'
 
 export default function Home() {

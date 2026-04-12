@@ -1,0 +1,34 @@
+@use '../../styles/variables' as *;
+
+.admin {
+  display: flex;
+  gap: 2rem;
+
+  &__nav {
+    min-width: 160px;
+  }
+
+  &__nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    a {
+      display: block;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      text-decoration: none;
+
+      &.active {
+        font-weight: bold;
+      }
+    }
+  }
+
+  &__content {
+    flex: 1;
+  }
+}

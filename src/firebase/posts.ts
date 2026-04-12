@@ -17,8 +17,11 @@ export const fetchPublishedPosts = async (): Promise<Post[]> => {
   return snapshot.docs.map(toPost)
 }
 
-export const fetchPostBySlug = async (slug: string): Promise<Post | null> => {
-  const q = query(postsCollection, where('slug', '==', slug), where('published', '==', true))
+export const fetchPostBySlug = async (slug: string, publishedOnly = true): Promise<Post | null> => {
+  const constraints = publishedOnly
+    ? [where('slug', '==', slug), where('published', '==', true)]
+    : [where('slug', '==', slug)]
+  const q = query(postsCollection, ...constraints)
   const snapshot = await getDocs(q)
   if (snapshot.empty) return null
   return toPost(snapshot.docs[0])

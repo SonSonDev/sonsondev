@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { signInWithGoogle } from '../firebase/auth'
+import { signInWithGoogle } from '../../firebase/auth'
 import './Login.scss'
 
 export default function Login() {

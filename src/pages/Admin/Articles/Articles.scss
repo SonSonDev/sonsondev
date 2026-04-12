@@ -1,0 +1,83 @@
+@use '../../../styles/variables' as *;
+
+.articles {
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+
+    h2 {
+      font-size: 1.25rem;
+    }
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th, td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid $color-border;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      &:last-child {
+        text-align: right;
+      }
+    }
+
+    th {
+      font-size: 0.85rem;
+      color: $color-text-muted;
+      font-weight: 500;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+
+    button {
+      padding: 0.35rem 0.75rem;
+      font-size: 0.85rem;
+      background: $color-primary;
+      color: white;
+      border: none;
+      border-radius: $radius;
+      cursor: pointer;
+      transition: background 0.2s;
+
+      &:hover {
+        background: $color-primary-hover;
+      }
+    }
+  }
+
+  &__badge {
+    font-size: 0.75rem;
+    padding: 0.2em 0.6em;
+    border-radius: 99px;
+    background: #f3f4f6;
+    color: $color-text-muted;
+    white-space: nowrap;
+
+    &--published {
+      background: #dcfce7;
+      color: #16a34a;
+    }
+  }
+
+  &__delete {
+    background: none !important;
+    color: #dc2626 !important;
+    border: 1px solid #fecaca !important;
+
+    &:hover {
+      background: #fef2f2 !important;
+    }
+  }
+}

@@ -12,20 +12,23 @@ action:
 admin:
   articles: "Articles"
   content: "Contenu (Markdown)"
+  publish: "Publier"
   deleteConfirm: "Supprimer cet article ?"
   draft: "Brouillon"
   excerpt: "Extrait"
   newArticle: "Nouvel article"
   published: "Publié"
   saved: "Article enregistré !"
+  actions: "Actions"
   slug: "Slug"
+  status: "Statut"
   title: "Titre"
 
 common:
   loading: "Chargement..."
 
 home:
-  title: "Home"
+  title: "Accueil"
 
 login:
   error: "Erreur lors de la connexion Google."

@@ -1,0 +1,70 @@
+@use '../../../styles/variables' as *;
+
+.new-article {
+  max-width: 680px;
+
+  h1 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: $color-text-muted;
+    }
+
+    input, textarea {
+      font-family: $font-sans;
+      font-size: 1rem;
+      padding: 0.6rem 0.75rem;
+      border: 1px solid $color-border;
+      border-radius: $radius;
+      outline: none;
+      transition: border-color 0.2s;
+
+      &:focus {
+        border-color: $color-primary;
+      }
+    }
+
+    textarea {
+      resize: vertical;
+      font-family: $font-mono;
+    }
+  }
+
+  &__checkbox {
+    flex-direction: row !important;
+    align-items: center;
+    gap: 0.5rem !important;
+  }
+
+  button {
+    padding: 0.7rem 1.5rem;
+    background: $color-primary;
+    color: white;
+    border: none;
+    border-radius: $radius;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover:not(:disabled) {
+      background: $color-primary-hover;
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+}
