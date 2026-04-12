@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
-import { collection, getDocs, query, where, orderBy } from 'firebase/firestore'
-import { db } from '../firebase'
+import { fetchPublishedPosts } from '../firebase/posts'
 import { Post } from '../types/post'
 import PostCard from '../components/PostCard'
 import './Home.scss'
@@ -10,23 +9,10 @@ export default function Home() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const fetchPosts = async () => {
-      const q = query(
-        collection(db, 'posts'),
-        where('published', '==', true),
-        orderBy('createdAt', 'desc')
-      )
-      const snapshot = await getDocs(q)
-      const data = snapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data(),
-        createdAt: doc.data().createdAt.toDate(),
-      })) as Post[]
+    fetchPublishedPosts().then(data => {
       setPosts(data)
       setLoading(false)
-    }
-
-    fetchPosts()
+    })
   }, [])
 
   if (loading) return <p>Chargement...</p>

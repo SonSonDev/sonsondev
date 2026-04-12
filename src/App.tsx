@@ -8,7 +8,7 @@ import Admin from './pages/Admin'
 import Login from './pages/Login'
 import './styles/App.scss'
 
-export default function App() {
+export default function App () {
   return (
     <AuthProvider>
       <BrowserRouter>

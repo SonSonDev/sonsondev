@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
-import { collection, addDoc, getDocs, doc, updateDoc, deleteDoc, orderBy, query, Timestamp } from 'firebase/firestore'
-import { db } from '../firebase'
+import { fetchAllPosts, addPost, togglePostPublished, deletePost } from '../firebase/posts'
 import { Post } from '../types/post'
 import './Admin.scss'
 
@@ -14,17 +13,9 @@ export default function Admin() {
   const [saving, setSaving] = useState(false)
   const [success, setSuccess] = useState(false)
 
-  const fetchPosts = async () => {
-    const q = query(collection(db, 'posts'), orderBy('createdAt', 'desc'))
-    const snapshot = await getDocs(q)
-    setPosts(snapshot.docs.map(d => ({
-      id: d.id,
-      ...d.data(),
-      createdAt: d.data().createdAt.toDate(),
-    })) as Post[])
-  }
+  const loadPosts = () => fetchAllPosts().then(setPosts)
 
-  useEffect(() => { fetchPosts() }, [])
+  useEffect(() => { loadPosts() }, [])
 
   const generateSlug = (value: string) =>
     value
@@ -42,16 +33,7 @@ export default function Admin() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setSaving(true)
-
-    await addDoc(collection(db, 'posts'), {
-      title,
-      slug,
-      excerpt,
-      content,
-      published,
-      createdAt: Timestamp.now(),
-    })
-
+    await addPost({ title, slug, excerpt, content, published })
     setTitle('')
     setSlug('')
     setExcerpt('')
@@ -60,18 +42,18 @@ export default function Admin() {
     setSaving(false)
     setSuccess(true)
     setTimeout(() => setSuccess(false), 3000)
-    fetchPosts()
+    loadPosts()
   }
 
-  const togglePublished = async (post: Post) => {
-    await updateDoc(doc(db, 'posts', post.id), { published: !post.published })
-    fetchPosts()
+  const handleToggle = async (post: Post) => {
+    await togglePostPublished(post)
+    loadPosts()
   }
 
   const handleDelete = async (id: string) => {
     if (!confirm('Supprimer cet article ?')) return
-    await deleteDoc(doc(db, 'posts', id))
-    fetchPosts()
+    await deletePost(id)
+    loadPosts()
   }
 
   return (
@@ -89,7 +71,7 @@ export default function Admin() {
                   <span className="admin__item-title">{post.title}</span>
                 </div>
                 <div className="admin__item-actions">
-                  <button onClick={() => togglePublished(post)}>
+                  <button onClick={() => handleToggle(post)}>
                     {post.published ? 'Dépublier' : 'Publier'}
                   </button>
                   <button className="admin__delete" onClick={() => handleDelete(post.id)}>

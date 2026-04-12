@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { collection, getDocs, query, where } from 'firebase/firestore'
 import ReactMarkdown from 'react-markdown'
-import { db } from '../firebase'
+import { fetchPostBySlug } from '../firebase/posts'
 import { Post as PostType } from '../types/post'
 import './Post.scss'
 
@@ -13,29 +12,11 @@ export default function Post() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const fetchPost = async () => {
-      const q = query(
-        collection(db, 'posts'),
-        where('slug', '==', slug),
-        where('published', '==', true)
-      )
-      const snapshot = await getDocs(q)
-
-      if (snapshot.empty) {
-        navigate('/')
-        return
-      }
-
-      const doc = snapshot.docs[0]
-      setPost({
-        id: doc.id,
-        ...doc.data(),
-        createdAt: doc.data().createdAt.toDate(),
-      } as PostType)
+    fetchPostBySlug(slug!).then(data => {
+      if (!data) { navigate('/'); return }
+      setPost(data)
       setLoading(false)
-    }
-
-    fetchPost()
+    })
   }, [slug, navigate])
 
   if (loading) return <p>Chargement...</p>

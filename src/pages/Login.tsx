@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
-import { auth } from '../firebase'
+import { auth } from '../firebase/index'
 import './Login.scss'
 
 const provider = new GoogleAuthProvider()
