@@ -1,11 +1,15 @@
 import { useEffect, useState } from 'react'
-import { useParams, useNavigate, Link } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
+import rehypeRaw from 'rehype-raw'
+import { EditPencil } from 'iconoir-react'
+import Button from '../../components/Button/Button'
 import { useTranslation } from 'react-i18next'
 import { fetchPostBySlug } from '../../firebase/posts'
 import { Post as PostType } from '../../types/post'
 import { formatDate } from '../../utils/date'
 import { useAuth } from '../../context/AuthContext'
+import { routes } from '../../routes'
 import './Post.scss'
 
 export default function Post() {
@@ -18,7 +22,7 @@ export default function Post() {
 
   useEffect(() => {
     fetchPostBySlug(slug!, !user).then(data => {
-      if (!data) { navigate('/'); return }
+      if (!data) { navigate(routes.Home); return }
       setPost(data)
       setLoading(false)
     })
@@ -31,6 +35,9 @@ export default function Post() {
 
   return (
     <article className="post">
+      {post.thumbnailUrl && post.showThumbnail && (
+        <img src={post.thumbnailUrl} alt="" className="post__thumbnail" />
+      )}
       <header className="post__header">
         <span className="post__date">{formattedDate}</span>
         <h1 className="post__title">{post.title}</h1>
@@ -39,12 +46,12 @@ export default function Post() {
             <span className={`post__badge ${post.published ? 'post__badge--published' : ''}`}>
               {post.published ? t('admin.published') : t('admin.draft')}
             </span>
-            <Link className="post__edit" to={`/admin/articles/${post.id}/edit`}>{t('action.edit')}</Link>
+            <Button as="link" variant="ghost" className="post__edit" to={routes.AdminEditPost(post.id)} aria-label={t('action.edit')}><EditPencil /></Button>
           </>
         )}
       </header>
       <div className="post__content">
-        <ReactMarkdown>{post.content}</ReactMarkdown>
+        <ReactMarkdown rehypePlugins={[rehypeRaw]}>{post.content}</ReactMarkdown>
       </div>
     </article>
   )

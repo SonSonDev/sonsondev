@@ -1,6 +1,6 @@
 @use '../../../styles/variables' as *;
 
-.articles {
+.posts {
   &__header {
     display: flex;
     align-items: center;
@@ -39,22 +39,7 @@
   &__actions {
     display: flex;
     justify-content: flex-end;
-    gap: 0.5rem;
-
-    button {
-      padding: 0.35rem 0.75rem;
-      font-size: 0.85rem;
-      background: $color-primary;
-      color: white;
-      border: none;
-      border-radius: $radius;
-      cursor: pointer;
-      transition: background 0.2s;
-
-      &:hover {
-        background: $color-primary-hover;
-      }
-    }
+    gap: 0.25rem;
   }
 
   &__badge {
@@ -68,16 +53,6 @@
     &--published {
       background: #dcfce7;
       color: #16a34a;
-    }
-  }
-
-  &__delete {
-    background: none !important;
-    color: #dc2626 !important;
-    border: 1px solid #fecaca !important;
-
-    &:hover {
-      background: #fef2f2 !important;
     }
   }
 }

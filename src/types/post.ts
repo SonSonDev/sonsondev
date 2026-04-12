@@ -6,6 +6,8 @@ export interface PostBase {
   excerpt: string
   content: string
   published: boolean
+  thumbnailUrl?: string
+  showThumbnail?: boolean
 }
 
 export interface PostPayload extends PostBase {

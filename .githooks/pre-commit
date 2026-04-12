@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if git diff --cached --name-only | grep -q "^src/locales/.*\.yml$"; then
+  echo "Sorting locale files..."
+  mise run sort-locales
+  git add src/locales/*.yml
+fi

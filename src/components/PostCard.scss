@@ -1,16 +1,30 @@
 @use '../styles/variables' as *;
 
 .post-card {
+  position: relative;
   border: 1px solid $color-border;
   border-radius: $radius;
-  padding: 1.5rem;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
   transition: box-shadow 0.2s;
 
   &:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  &__thumbnail {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+
+  &__body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
   }
 
   &__date {
@@ -18,13 +32,9 @@
     color: $color-text-muted;
   }
 
-  &__title a {
-    color: $color-text;
+  &__title {
     font-size: 1.25rem;
-
-    &:hover {
-      color: $color-primary;
-    }
+    color: $color-text;
   }
 
   &__excerpt {
@@ -33,8 +43,14 @@
   }
 
   &__link {
-    margin-top: 0.5rem;
+    margin-top: auto;
     font-size: 0.9rem;
     font-weight: 500;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+    }
   }
 }

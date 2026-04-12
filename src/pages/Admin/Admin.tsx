@@ -1,5 +1,6 @@
 import { NavLink, Outlet } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { routes } from '../../routes'
 import './Admin.scss'
 
 export default function Admin() {
@@ -10,7 +11,7 @@ export default function Admin() {
       <nav className="admin__nav">
         <ul className="admin__nav-list">
           <li>
-            <NavLink to="/admin/articles">{t('admin.articles')}</NavLink>
+            <NavLink to={routes.AdminPosts}>{t('admin.posts')}</NavLink>
           </li>
         </ul>
       </nav>

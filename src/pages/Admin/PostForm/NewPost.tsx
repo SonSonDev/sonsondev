@@ -2,16 +2,17 @@ import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { addPost } from '../../../firebase/posts'
 import { PostBase } from '../../../types/post'
-import ArticleForm from '../ArticleForm/ArticleForm'
+import { routes } from '../../../routes'
+import PostForm from './PostForm'
 
-export default function NewArticle() {
+export default function NewPost() {
   const { t } = useTranslation()
   const navigate = useNavigate()
 
   const handleSubmit = async (data: PostBase) => {
     await addPost(data)
-    navigate('/admin/articles')
+    navigate(routes.AdminPosts)
   }
 
-  return <ArticleForm heading={t('admin.newArticle')} onSubmit={handleSubmit} />
+  return <PostForm heading={t('admin.new_post')} onSubmit={handleSubmit} />
 }

@@ -1,6 +1,7 @@
 @use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
 
-.article-form {
+.post-form {
   max-width: 680px;
 
   h1 {
@@ -42,6 +43,54 @@
     }
   }
 
+  &__thumbnail {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: $color-text-muted;
+  }
+
+  &__thumbnail-upload {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__thumbnail-preview {
+    width: 120px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: $radius;
+    border: 1px solid $color-border;
+  }
+
+  &__preview-thumbnail {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: $radius;
+    margin-bottom: 1.5rem;
+  }
+
+  &__content-header {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: $color-text-muted;
+
+    span {
+      flex: 1;
+    }
+  }
+
+  &__file-input {
+    display: none;
+  }
+
   &__checkbox {
     flex-direction: row !important;
     align-items: center;
@@ -53,7 +102,7 @@
     padding-top: 2rem;
     border-top: 1px solid $color-border;
 
-    h2 {
+    > h2 {
       font-size: 0.85rem;
       font-weight: 500;
       text-transform: uppercase;
@@ -65,31 +114,7 @@
 
   &__preview-body {
     h1 { font-size: 2rem; margin-bottom: 0.5rem; }
-    h2, h3 { margin: 1.5rem 0 0.5rem; }
-    p { margin-bottom: 1rem; }
-
-    code {
-      font-family: $font-mono;
-      background: #f3f4f6;
-      padding: 0.2em 0.4em;
-      border-radius: 4px;
-      font-size: 0.9em;
-    }
-
-    pre {
-      background: #1f2937;
-      color: #f9fafb;
-      padding: 1rem;
-      border-radius: $radius;
-      overflow-x: auto;
-      margin-bottom: 1rem;
-
-      code {
-        background: none;
-        color: inherit;
-        padding: 0;
-      }
-    }
+    @include markdown-content;
   }
 
   &__preview-excerpt {
@@ -98,25 +123,5 @@
     margin-bottom: 1.5rem;
     border-left: 3px solid $color-border;
     padding-left: 0.75rem;
-  }
-
-  button {
-    padding: 0.7rem 1.5rem;
-    background: $color-primary;
-    color: white;
-    border: none;
-    border-radius: $radius;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.2s;
-
-    &:hover:not(:disabled) {
-      background: $color-primary-hover;
-    }
-
-    &:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
   }
 }

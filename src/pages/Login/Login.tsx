@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { signInWithGoogle } from '../../firebase/auth'
+import { routes } from '../../routes'
 import './Login.scss'
 
 export default function Login() {
@@ -16,7 +17,7 @@ export default function Login() {
 
     try {
       await signInWithGoogle()
-      navigate('/admin')
+      navigate(routes.Admin)
     } catch {
       setError(t('login.error'))
     } finally {
@@ -34,7 +35,7 @@ export default function Login() {
             src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
             alt="Google"
           />
-          {loading ? t('action.signingIn') : t('action.signInWithGoogle')}
+          {loading ? t('action.signing_in') : t('action.sign_in_with_google')}
         </button>
       </div>
     </div>

@@ -1,0 +1,31 @@
+@use 'variables' as *;
+
+@mixin markdown-content {
+  h2, h3 { margin: 1.5rem 0 0.5rem; }
+  p { margin-bottom: 1rem; }
+
+  img { max-width: 100%; height: auto; }
+
+  code {
+    font-family: $font-mono;
+    background: #f3f4f6;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+
+  pre {
+    background: #1f2937;
+    color: #f9fafb;
+    padding: 1rem;
+    border-radius: $radius;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+
+    code {
+      background: none;
+      color: inherit;
+      padding: 0;
+    }
+  }
+}

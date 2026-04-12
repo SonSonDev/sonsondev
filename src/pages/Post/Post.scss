@@ -1,8 +1,17 @@
 @use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
 
 .post {
   max-width: 680px;
   margin: 0 auto;
+
+  &__thumbnail {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: $radius;
+    margin-bottom: 2rem;
+  }
 
   &__header {
     margin-bottom: 2rem;
@@ -19,15 +28,8 @@
   }
 
   &__edit {
-    display: inline-block;
-    margin-top: 0.5rem;
-    margin-left: 0.5rem;
-    font-size: 0.75rem;
-    color: $color-text-muted;
-
-    &:hover {
-      color: $color-primary;
-    }
+    margin-left: 0.25rem;
+    vertical-align: middle;
   }
 
   &__badge {
@@ -46,30 +48,6 @@
   }
 
   &__content {
-    h2, h3 { margin: 1.5rem 0 0.5rem; }
-    p { margin-bottom: 1rem; }
-
-    code {
-      font-family: $font-mono;
-      background: #f3f4f6;
-      padding: 0.2em 0.4em;
-      border-radius: 4px;
-      font-size: 0.9em;
-    }
-
-    pre {
-      background: #1f2937;
-      color: #f9fafb;
-      padding: 1rem;
-      border-radius: $radius;
-      overflow-x: auto;
-      margin-bottom: 1rem;
-
-      code {
-        background: none;
-        color: inherit;
-        padding: 0;
-      }
-    }
+    @include markdown-content;
   }
 }

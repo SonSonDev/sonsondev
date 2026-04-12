@@ -3,29 +3,32 @@ action:
   edit: "Modifier"
   logout: "Déconnexion"
   publish: "Publier"
-  readMore: "Lire la suite →"
+  read_more: "Lire la suite →"
   save: "Enregistrer"
   saving: "Sauvegarde..."
-  signInWithGoogle: "Continuer avec Google"
-  signingIn: "Connexion..."
+  sign_in_with_google: "Continuer avec Google"
+  signing_in: "Connexion..."
   unpublish: "Dépublier"
 
 admin:
-  articles: "Articles"
+  actions: "Actions"
+  posts: "Blog"
   content: "Contenu (Markdown)"
-  publish: "Publier"
-  deleteConfirm: "Supprimer cet article ?"
+  delete_confirm: "Supprimer cet article ?"
   draft: "Brouillon"
-  editArticle: "Modifier l'article"
-  preview: "Aperçu"
+  edit_post: "Modifier le post"
   excerpt: "Extrait"
-  newArticle: "Nouvel article"
+  new_post: "Nouveau post"
+  preview: "Aperçu"
+  publish: "Publier"
   published: "Publié"
   saved: "Article enregistré !"
-  actions: "Actions"
   slug: "Slug"
   status: "Statut"
+  show_thumbnail: "Afficher dans l'article"
+  thumbnail: "Thumbnail"
   title: "Titre"
+  upload_image: "Insérer une image"
 
 common:
   loading: "Chargement..."
@@ -41,6 +44,10 @@ navbar:
   admin: "Admin"
   home: "Accueil"
   logo: "SonSonDev"
+  posts: "Blog"
 
-postCard:
-  readMore: "Lire la suite →"
+posts:
+  title: "Blog"
+
+post_card:
+  read_more: "Lire la suite →"
