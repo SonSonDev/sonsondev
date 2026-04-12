@@ -18,6 +18,18 @@
     margin-top: 0.5rem;
   }
 
+  &__edit {
+    display: inline-block;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    font-size: 0.75rem;
+    color: $color-text-muted;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
   &__badge {
     display: inline-block;
     margin-top: 0.5rem;

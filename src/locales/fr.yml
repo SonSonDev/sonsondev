@@ -1,5 +1,6 @@
 action:
   delete: "Supprimer"
+  edit: "Modifier"
   logout: "Déconnexion"
   publish: "Publier"
   readMore: "Lire la suite →"
@@ -15,6 +16,8 @@ admin:
   publish: "Publier"
   deleteConfirm: "Supprimer cet article ?"
   draft: "Brouillon"
+  editArticle: "Modifier l'article"
+  preview: "Aperçu"
   excerpt: "Extrait"
   newArticle: "Nouvel article"
   published: "Publié"

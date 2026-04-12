@@ -48,6 +48,7 @@ export default function Articles() {
                 </span>
               </td>
               <td className="articles__actions">
+                <Link to={`/admin/articles/${post.id}/edit`}>{t('action.edit')}</Link>
                 <button onClick={() => handleToggle(post)}>
                   {post.published ? t('action.unpublish') : t('action.publish')}
                 </button>

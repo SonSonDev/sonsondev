@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import { useTranslation } from 'react-i18next'
 import { fetchPostBySlug } from '../../firebase/posts'
@@ -35,9 +35,12 @@ export default function Post() {
         <span className="post__date">{formattedDate}</span>
         <h1 className="post__title">{post.title}</h1>
         {user && (
-          <span className={`post__badge ${post.published ? 'post__badge--published' : ''}`}>
-            {post.published ? t('admin.published') : t('admin.draft')}
-          </span>
+          <>
+            <span className={`post__badge ${post.published ? 'post__badge--published' : ''}`}>
+              {post.published ? t('admin.published') : t('admin.draft')}
+            </span>
+            <Link className="post__edit" to={`/admin/articles/${post.id}/edit`}>{t('action.edit')}</Link>
+          </>
         )}
       </header>
       <div className="post__content">

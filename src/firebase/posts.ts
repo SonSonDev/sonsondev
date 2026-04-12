@@ -1,4 +1,4 @@
-import { collection, getDocs, addDoc, doc, updateDoc, deleteDoc, query, where, orderBy, Timestamp, QueryDocumentSnapshot } from 'firebase/firestore'
+import { collection, getDocs, getDoc, addDoc, doc, updateDoc, deleteDoc, query, where, orderBy, Timestamp, QueryDocumentSnapshot } from 'firebase/firestore'
 import { db } from './index'
 import { Post, PostBase, PostPayload } from '../types/post'
 import { Collections } from './collections'
@@ -31,6 +31,16 @@ export const fetchAllPosts = async (): Promise<Post[]> => {
   const q = query(postsCollection, orderBy('createdAt', 'desc'))
   const snapshot = await getDocs(q)
   return snapshot.docs.map(toPost)
+}
+
+export const fetchPostById = async (id: string): Promise<Post | null> => {
+  const snapshot = await getDoc(doc(db, Collections.posts, id))
+  if (!snapshot.exists()) return null
+  return toPost(snapshot as QueryDocumentSnapshot)
+}
+
+export const updatePost = async (id: string, data: PostBase) => {
+  await updateDoc(doc(db, Collections.posts, id), { ...data })
 }
 
 export const addPost = async (data: PostBase) => {
