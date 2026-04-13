@@ -18,3 +18,5 @@ export interface Post extends PostBase {
   id: string
   createdAt: Date
 }
+
+export type SerializedPost = Omit<Post, 'createdAt'> & { createdAt: string }

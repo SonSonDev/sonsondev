@@ -1,8 +1,16 @@
-node_modules
-dist
-dist-ssr
-*.local
-env/.env
-env/.env.local
-.DS_Store
+# Next.js
+.next/
+out/
+
+# Dépendances
+node_modules/
+
+# Env
+.env
+
+# Build info
 *.tsbuildinfo
+next-env.d.ts
+
+# OS
+.DS_Store

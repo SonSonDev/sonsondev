@@ -1,0 +1,56 @@
+export const fr = {
+  action: {
+    delete: 'Supprimer',
+    edit: 'Modifier',
+    logout: 'Déconnexion',
+    publish: 'Publier',
+    read_more: 'Lire la suite →',
+    save: 'Enregistrer',
+    saving: 'Sauvegarde...',
+    sign_in_with_google: 'Continuer avec Google',
+    signing_in: 'Connexion...',
+    unpublish: 'Dépublier',
+  },
+  admin: {
+    actions: 'Actions',
+    posts: 'Blog',
+    content: 'Contenu (Markdown)',
+    delete_confirm: 'Supprimer cet article ?',
+    draft: 'Brouillon',
+    edit_post: 'Modifier le post',
+    excerpt: 'Extrait',
+    new_post: 'Nouveau post',
+    preview: 'Aperçu',
+    publish: 'Publier',
+    published: 'Publié',
+    saved: 'Article enregistré !',
+    slug: 'Slug',
+    status: 'Statut',
+    show_thumbnail: "Afficher dans l'article",
+    thumbnail: 'Thumbnail',
+    title: 'Titre',
+    upload_image: 'Insérer une image',
+  },
+  common: {
+    loading: 'Chargement...',
+  },
+  home: {
+    title: 'Accueil',
+  },
+  login: {
+    error: 'Erreur lors de la connexion Google.',
+    title: 'Connexion',
+  },
+  navbar: {
+    admin: 'Admin',
+    home: 'Accueil',
+    logo: 'SonSonDev',
+    posts: 'Blog',
+  },
+  posts: {
+    title: 'Blog',
+  },
+  post_card: {
+    read_more: 'Lire la suite →',
+  },
+} as const

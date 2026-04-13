@@ -1,0 +1,60 @@
+@use 'variables' as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  border: none;
+  border-radius: $radius;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+  font-family: $font-sans;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  &--primary {
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    background: $color-primary;
+    color: white;
+
+    &:hover:not(:disabled) {
+      background: $color-primary-hover;
+    }
+  }
+
+  &--ghost {
+    width: 2rem;
+    height: 2rem;
+    background: none;
+    color: $color-text-muted;
+
+    &:hover:not(:disabled) {
+      background: #f3f4f6;
+      color: $color-primary;
+    }
+  }
+
+  &--danger {
+    width: 2rem;
+    height: 2rem;
+    background: none;
+    color: $color-text-muted;
+
+    &:hover:not(:disabled) {
+      background: #fef2f2;
+      color: #dc2626;
+    }
+  }
+}

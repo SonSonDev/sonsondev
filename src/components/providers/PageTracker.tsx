@@ -1,9 +1,11 @@
+'use client'
+
 import { useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import { logEvent } from 'firebase/analytics'
-import { analytics } from '../firebase/index'
+import { analytics } from '../../firebase/index'
 
-export const usePageTracking = () => {
+export default function PageTracker() {
   const pathname = usePathname()
 
   useEffect(() => {
@@ -14,4 +16,6 @@ export const usePageTracking = () => {
     }
     track()
   }, [pathname])
+
+  return null
 }

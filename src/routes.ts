@@ -1,10 +1,10 @@
 export const routes = {
   Home: '/',
-  Posts: '/posts',
+  PostList: '/post',
   Post: (slug: string) => `/post/${slug}`,
   Login: '/login',
   Admin: '/admin',
-  AdminPosts: '/admin/posts',
-  AdminNewPost: '/admin/posts/new',
-  AdminEditPost: (id: string) => `/admin/posts/${id}/edit`,
+  AdminPost: '/admin/post',
+  AdminNewPost: '/admin/post/new',
+  AdminEditPost: (id: string) => `/admin/post/${id}/edit`,
 } as const

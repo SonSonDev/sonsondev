@@ -40,11 +40,14 @@ export const fetchPostById = async (id: string): Promise<Post | null> => {
 }
 
 export const updatePost = async (id: string, data: PostBase) => {
-  await updateDoc(doc(db, Collections.posts, id), { ...data })
+  await updateDoc(doc(db, Collections.posts, id), { ...stripUndefined(data) })
 }
 
+const stripUndefined = <T extends object>(obj: T): Partial<T> =>
+  Object.fromEntries(Object.entries(obj).filter(([, v]) => v !== undefined)) as Partial<T>
+
 export const addPost = async (data: PostBase) => {
-  await addDoc(postsCollection, { ...data, createdAt: Timestamp.now() })
+  await addDoc(postsCollection, { ...stripUndefined(data), createdAt: Timestamp.now() })
 }
 
 export const togglePostPublished = async (post: Post) => {

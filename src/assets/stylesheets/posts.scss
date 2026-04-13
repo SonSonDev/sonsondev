@@ -1,0 +1,14 @@
+@use 'variables' as *;
+
+.posts-page {
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+}
