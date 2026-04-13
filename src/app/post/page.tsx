@@ -1,12 +1,14 @@
+import { getServerFirebasePublic } from '@/firebase/server'
 import { fetchPublishedPosts } from '@/firebase/posts'
 import PostCard from '@/components/ui/PostCard'
 import { t } from '@/locales/t'
 import '@/assets/stylesheets/posts.scss'
 
-export const revalidate = 3600
+export const revalidate = 60
 
 export default async function PostsPage() {
-  const posts = await fetchPublishedPosts()
+  const { db } = getServerFirebasePublic()
+  const posts = await fetchPublishedPosts(db)
 
   return (
     <div className="posts-page">
