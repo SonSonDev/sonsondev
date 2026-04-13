@@ -4,8 +4,12 @@ import PostContent from '@/views/Post/PostContent'
 import { SerializedPost } from '@/types/post'
 
 export async function generateStaticParams() {
-  const posts = await fetchPublishedPosts()
-  return posts.map(post => ({ slug: post.slug }))
+  try {
+    const posts = await fetchPublishedPosts()
+    return posts.map(post => ({ slug: post.slug }))
+  } catch {
+    return []
+  }
 }
 
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
