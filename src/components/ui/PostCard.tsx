@@ -1,8 +1,8 @@
 import Link from 'next/link'
-import { Post } from '../../types/post'
-import { formatDate } from '../../utils/date'
-import { routes } from '../../routes'
-import { t } from '../../locales/t'
+import { Post } from '@/types/post'
+import { formatDate } from '@/utils/date'
+import { routes } from '@/routes'
+import { t } from '@/locales/t'
 import '@/assets/stylesheets/post-card.scss'
 
 interface Props {

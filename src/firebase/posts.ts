@@ -1,8 +1,8 @@
 import { collection, getDocs, getDoc, addDoc, doc, updateDoc, deleteDoc, query, where, orderBy, Timestamp, QueryDocumentSnapshot } from 'firebase/firestore'
 import { db } from './index'
-import { Post, PostBase, PostPayload } from '../types/post'
+import { Post, PostBase, PostPayload } from '@/types/post'
 import { Collections } from './collections'
-import { fromTimestamp } from '../utils/date'
+import { fromTimestamp } from '@/utils/date'
 
 const postsCollection = collection(db, Collections.posts)
 

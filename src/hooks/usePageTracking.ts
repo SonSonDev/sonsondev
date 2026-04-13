@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import { logEvent } from 'firebase/analytics'
-import { analytics } from '../firebase/index'
+import { analytics } from '@/firebase/index'
 
 export const usePageTracking = () => {
   const pathname = usePathname()

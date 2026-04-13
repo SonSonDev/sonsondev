@@ -2,9 +2,9 @@
 
 import Link from 'next/link'
 import { useTranslation } from 'react-i18next'
-import { signOutUser } from '../../firebase/auth'
-import { useAuth } from '../../context/AuthContext'
-import { routes } from '../../routes'
+import { signOutUser } from '@/firebase/auth'
+import { useAuth } from '@/context/AuthContext'
+import { routes } from '@/routes'
 import '@/assets/stylesheets/navbar.scss'
 
 export default function Navbar() {
