@@ -31,3 +31,5 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_SONSONDEV }}
           channelId: live
           projectId: sonsondev
+        env:
+          FIREBASE_CLI_EXPERIMENTS: webframeworks
