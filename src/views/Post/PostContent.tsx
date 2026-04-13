@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import ReactMarkdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
 import { EditPencil } from 'iconoir-react'
@@ -23,7 +24,7 @@ export default function PostContent({ post }: Props) {
   return (
     <article className="post">
       {post.thumbnailUrl && post.showThumbnail && (
-        <img src={post.thumbnailUrl} alt="" className="post__thumbnail" />
+        <Image src={post.thumbnailUrl} alt="" className="post__thumbnail" width={1200} height={400} />
       )}
       <header className="post__header">
         <span className="post__date">{formattedDate}</span>

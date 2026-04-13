@@ -10,6 +10,12 @@ try {
 
 const nextConfig: NextConfig = {
   outputFileTracingRoot: path.join(__dirname),
+  images: {
+    remotePatterns: [
+      { protocol: 'https', hostname: 'firebasestorage.googleapis.com' },
+      { protocol: 'https', hostname: 'www.gstatic.com' },
+    ],
+  },
 }
 
 export default nextConfig

@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import Image from 'next/image'
 import ReactMarkdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
 import { MediaImage } from 'iconoir-react'
@@ -119,7 +120,7 @@ export default function PostForm({ heading, initialValues, onSubmit, preview = f
           <span>{t('admin.thumbnail')}</span>
           <div className="post-form__thumbnail-upload">
             {thumbnailUrl && (
-              <img src={thumbnailUrl} alt="" className="post-form__thumbnail-preview" />
+              <Image src={thumbnailUrl} alt="" className="post-form__thumbnail-preview" width={120} height={80} />
             )}
             <Button
               variant="ghost"
@@ -194,7 +195,7 @@ export default function PostForm({ heading, initialValues, onSubmit, preview = f
         <div className="post-form__preview">
           <h2>{t('admin.preview')}</h2>
           <div className="post-form__preview-body">
-            {thumbnailUrl && showThumbnail && <img src={thumbnailUrl} alt="" className="post-form__preview-thumbnail" />}
+            {thumbnailUrl && showThumbnail && <Image src={thumbnailUrl} alt="" className="post-form__preview-thumbnail" width={1200} height={300} />}
             {title && <h1>{title}</h1>}
             {excerpt && <p className="post-form__preview-excerpt">{excerpt}</p>}
             <ReactMarkdown rehypePlugins={[rehypeRaw]}>{content}</ReactMarkdown>

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Post } from '@/types/post'
 import { formatDate } from '@/utils/date'
 import { routes } from '@/routes'
@@ -15,7 +16,7 @@ export default function PostCard({ post }: Props) {
   return (
     <article className="post-card">
       {post.thumbnailUrl && (
-        <img src={post.thumbnailUrl} alt="" className="post-card__thumbnail" />
+        <Image src={post.thumbnailUrl} alt="" className="post-card__thumbnail" width={800} height={180} />
       )}
       <div className="post-card__body">
         <span className="post-card__date">{formattedDate}</span>
