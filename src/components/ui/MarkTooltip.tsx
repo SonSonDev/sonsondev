@@ -223,13 +223,19 @@ export function Tooltip({ content, info }: TooltipProps) {
       onMouseEnter={() => setVisible(true)}
       onMouseMove={(e) => { if (!isPinned) setMousePos({ x: e.clientX, y: e.clientY }); }}
       onMouseLeave={() => { if (!isPinned) setVisible(false); }}
-      onClick={() => {
-        if (!isPinned && mousePos) {
+      onTouchStart={(e) => {
+        const touch = e.touches[0];
+        setMousePos({ x: touch.clientX, y: touch.clientY });
+      }}
+      onClick={(e) => {
+        const pos = mousePos ?? { x: (e as React.MouseEvent).clientX, y: (e as React.MouseEvent).clientY };
+        if (!isPinned) {
           const viewportWidth = window.innerWidth;
           const viewportHeight = window.innerHeight;
-          setPinnedPosition(computeTooltipPositionFromMouse(mousePos.x, mousePos.y, viewportWidth, viewportHeight, imageSize));
+          setPinnedPosition(computeTooltipPositionFromMouse(pos.x, pos.y, viewportWidth, viewportHeight, imageSize));
+        } else {
+          setPinnedPosition(null);
         }
-        if (isPinned) setPinnedPosition(null);
         setIsPinned(!isPinned);
         setVisible(isPinned ? false : true);
       }}
