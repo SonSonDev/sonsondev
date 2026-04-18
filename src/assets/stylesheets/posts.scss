@@ -1,0 +1,109 @@
+@use 'variables' as *;
+
+.posts-page {
+h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.post-list {
+  list-style: none;
+
+  li {
+    border-bottom: 1px solid $color-border;
+
+    &:first-child {
+      border-top: 1px solid $color-border;
+    }
+  }
+
+&__item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0.85rem 0;
+    color: $color-text;
+    overflow: hidden;
+
+    &::after {
+      display: none !important;
+    }
+
+    &::before {
+      content: '';
+      display: block;
+      position: static !important;
+      height: 1px;
+      background: $color-text;
+      flex-shrink: 0;
+      transform: none !important;
+      transition: width 0.35s ease, margin-right 0.35s ease;
+      bottom: auto !important;
+      width: 0;
+      margin-right: -1.5rem;
+    }
+
+    &:hover::before {
+      width: 2rem;
+      margin-right: -0.75rem;
+    }
+
+    @media (max-width: 640px) {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-areas:
+        'title date'
+        'excerpt excerpt';
+      column-gap: 1rem;
+      row-gap: 0.25rem;
+
+      &::before,
+      &::after { display: none !important; }
+    }
+  }
+
+  &__date {
+    font-size: 0.8rem;
+    color: $color-text-muted;
+    white-space: nowrap;
+    flex-shrink: 0;
+
+    @media (max-width: 640px) { grid-area: date; }
+  }
+
+  &__title {
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+
+    @media (max-width: 640px) { grid-area: title; }
+  }
+
+  &__excerpt {
+    font-size: 0.9rem;
+    color: $color-text-muted;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 0;
+    opacity: 0;
+    transition: max-width 0.35s ease, opacity 0.25s ease;
+    flex-shrink: 1;
+
+    @media (max-width: 640px) {
+      grid-area: excerpt;
+      display: block;
+      max-width: 100%;
+      opacity: 1;
+      white-space: normal;
+      transition: none;
+    }
+  }
+
+  &__item:hover &__excerpt {
+    @media (min-width: 641px) {
+      max-width: 40rem;
+      opacity: 1;
+    }
+  }
+}

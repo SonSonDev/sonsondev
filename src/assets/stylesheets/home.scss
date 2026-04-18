@@ -1,0 +1,57 @@
+@use 'variables' as *;
+
+.home-nav {
+  margin-top: 3rem;
+
+  ul {
+    list-style: none;
+  }
+
+&__link {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.25rem 0;
+    color: $color-text;
+    overflow: hidden;
+
+    &::after {
+      display: none !important;
+    }
+
+    &::before {
+      content: '';
+      display: block;
+      position: static !important;
+      height: 2px;
+      background: $color-text;
+      flex-shrink: 0;
+      transform: none !important;
+      transition: width 0.35s ease, margin-right 0.35s ease;
+      bottom: auto !important;
+      width: 0;
+      margin-right: -1.5rem;
+    }
+
+    &:hover::before {
+      width: 3rem;
+      margin-right: -0.75rem;
+    }
+
+    @media (max-width: 640px) {
+      &::before,
+      &::after {
+        display: none !important;
+      }
+    }
+  }
+
+  &__label {
+    font-size: 2.5rem;
+    font-weight: 700;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+
+}

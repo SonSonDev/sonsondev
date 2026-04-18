@@ -1,0 +1,54 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.post {
+  max-width: 960px;
+  margin: 0 0;
+
+  &__thumbnail {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: $radius;
+    margin-bottom: 2rem;
+  }
+
+  &__header {
+    margin-bottom: 2rem;
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &__date {
+    font-size: 0.85rem;
+    color: $color-text-muted;
+  }
+
+  &__title {
+    font-size: 2rem;
+    margin-top: 0.5rem;
+  }
+
+  &__edit {
+    flex-shrink: 0;
+  }
+
+  &__badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 0.2em 0.6em;
+    border-radius: 99px;
+    background: transparent;
+    color: $color-text;
+    border: 1px solid $color-text;
+  }
+
+  &__content {
+    @include markdown-content;
+  }
+}

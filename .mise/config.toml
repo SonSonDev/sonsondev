@@ -1,0 +1,11 @@
+[tools]
+node = "24.1.0"
+yq = "latest"
+
+[tasks.setup]
+description = "Configure le dépôt après un clone"
+run = "git config core.hooksPath .githooks"
+
+[tasks.sort-locales]
+description = "Trie les fichiers de locale par ordre alphabétique"
+run = "for file in src/locales/*.yml; do yq --inplace 'sort_keys(..)' \"$file\" && echo \"Sorted $file\"; done"

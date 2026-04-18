@@ -1,0 +1,85 @@
+action:
+  add: "Ajouter"
+  cancel: "Annuler"
+  close_nav: "Fermer la navigation"
+  delete: "Supprimer"
+  edit: "Modifier"
+  logout: "Déconnexion"
+  open_nav: "Ouvrir la navigation"
+  publish: "Publier"
+  read_more: "Lire la suite →"
+  save: "Enregistrer"
+  saving: "Sauvegarde..."
+  sign_in_with_google: "Continuer avec Google"
+  signing_in: "Connexion..."
+  unpublish: "Dépublier"
+  view: "Voir"
+
+admin:
+  actions: "Actions"
+  nav_title: "Menu"
+  posts: "Blog"
+  content: "Contenu (Markdown)"
+  date: "Date"
+  delete_confirm: "Supprimer cet article ?"
+  draft: "Brouillon"
+  edit_post: "Modifier le post"
+  excerpt: "Extrait"
+  new_post: "Nouveau post"
+  no_posts: "Aucun article."
+  preview: "Aperçu"
+  publish: "Publier"
+  published: "Publié"
+  saved: "Article enregistré !"
+  slug: "Slug"
+  status: "Statut"
+  show_thumbnail: "Afficher dans l'article"
+  thumbnail: "Thumbnail"
+  title: "Titre"
+  upload_image: "Insérer une image"
+  tags: "Tags"
+  tags_label: "Tags"
+  no_tags: "Aucun tag."
+  delete_confirm_tag: "Supprimer ce tag ?"
+  media: "Médias"
+  pick_image: "Choisir une image"
+  upload_new: "Upload"
+  copy_as_left_image: "Image à gauche"
+  copy_as_right_image: "Image à droite"
+  copy_as_tooltip: "Tooltip"
+  set_thumbnail: "Définir comme thumbnail"
+  copied: "Copié !"
+  no_images: "Aucune image."
+  unused: "Non utilisée"
+  used_as_thumbnail: "Thumbnail"
+  used_in_content: "Contenu"
+  delete_confirm_image: "Supprimer cette image ?"
+
+common:
+  loading: "Chargement..."
+
+not_found:
+  message: "Cette page n'existe pas ou n'est plus accessible."
+  back_home: "Retour à l'accueil"
+
+home:
+  title: "Accueil"
+  blog: "Blog"
+  todo: "Todo"
+
+login:
+  error: "Erreur lors de la connexion Google."
+  title: "Connexion"
+
+navbar:
+  admin: "Admin"
+  home: "Accueil"
+  logo: "SonSonDev"
+  posts: "Blog"
+  todo: "Todo"
+
+posts:
+  title: "Blog"
+
+post_card:
+  read_more: "Lire la suite →"

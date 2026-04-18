@@ -1,0 +1,65 @@
+@use 'variables' as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  border: none;
+  border-radius: $radius;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+  font-family: $font-sans;
+
+  &::after {
+    display: none;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  &--primary {
+    padding: 0.4rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    background: #1a1a1a;
+    color: $color-text;
+
+    &:hover:not(:disabled) {
+      background: #222222;
+    }
+  }
+
+  &--ghost {
+    width: 2rem;
+    height: 2rem;
+    background: none;
+    color: $color-text-muted;
+
+    &:hover:not(:disabled) {
+      background: #1a1a1a;
+      color: $color-text;
+    }
+  }
+
+  &--danger {
+    width: 2rem;
+    height: 2rem;
+    background: none;
+    color: $color-text-muted;
+
+    &:hover:not(:disabled) {
+      background: rgba(220, 38, 38, 0.12);
+      color: #dc2626;
+    }
+  }
+}

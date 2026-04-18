@@ -1,0 +1,205 @@
+@use 'variables' as *;
+
+.st {
+  background: $color-bg;
+
+  // ── Body & wrapper ──────────────────────────────────────────────────────────
+  &__body {
+    position: relative;
+  }
+
+  &__wrapper {
+    overflow: auto;
+  }
+
+  // ── Table ───────────────────────────────────────────────────────────────────
+  table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+  }
+
+  thead th {
+    padding: 0.75rem 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: $color-text-muted;
+    text-align: left;
+    border-bottom: 1px solid $color-border;
+    white-space: nowrap;
+  }
+
+  tbody td {
+    padding: 0.75rem 0;
+    font-size: 0.9rem;
+    border-bottom: 1px solid $color-border;
+    white-space: nowrap;
+    vertical-align: middle;
+
+    .posts__color-input {
+      margin-right: 0.5rem;
+    }
+
+    input[type='text'] {
+      border: 1px solid $color-border;
+      border-radius: $radius;
+      color: $color-text;
+      font-family: $font-sans;
+      font-size: 0.9rem;
+      height: 2rem;
+      outline: none;
+      padding: 0 0.5rem;
+      width: 100%;
+
+      &:focus {
+        border-color: $color-text;
+      }
+    }
+  }
+
+  // ── Alignment ───────────────────────────────────────────────────────────────
+  th, td {
+    &.center { text-align: center; }
+    &.right   { text-align: right; }
+  }
+
+  // ── Fit content ─────────────────────────────────────────────────────────────
+  .st-fit-content {
+    width: 1%;
+    min-width: 1%;
+    white-space: nowrap;
+  }
+
+  // ── Ellipsis ────────────────────────────────────────────────────────────────
+  .st-ellipsis {
+    max-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  // ── Sortable header ─────────────────────────────────────────────────────────
+  .st-sortable {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    cursor: pointer;
+    user-select: none;
+
+    &:hover {
+      color: $color-text;
+    }
+  }
+
+  .st-sort-icon {
+    display: inline-flex;
+    align-items: center;
+
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    &--neutral {
+      opacity: 0.3;
+    }
+  }
+
+  // ── Clickable rows ──────────────────────────────────────────────────────────
+  .st-clickable {
+    cursor: pointer;
+
+    td {
+      transition: background-color 0.2s ease;
+    }
+
+    &:hover td {
+      background-color: #111111;
+    }
+  }
+
+  // ── Group rows ──────────────────────────────────────────────────────────────
+  .st-group-row td {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: $color-text-muted;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 1rem 0 0.25rem;
+    border-bottom: none;
+  }
+
+  // ── Loading ─────────────────────────────────────────────────────────────────
+  &__loader {
+    text-align: center;
+    padding: 4rem 0 !important;
+    border-bottom: none !important;
+  }
+
+  // ── Placeholder ─────────────────────────────────────────────────────────────
+  &__placeholder {
+    text-align: center;
+    padding: 4rem 0;
+    color: $color-text-muted;
+    font-size: 0.95rem;
+  }
+
+  // ── Sticky columns ──────────────────────────────────────────────────────────
+  &--sticky {
+    table {
+      table-layout: fixed;
+      border-collapse: collapse;
+
+      th, td {
+        box-sizing: border-box;
+      }
+    }
+
+    .st-sticky-start,
+    .st-sticky-end {
+      position: sticky;
+      z-index: 2;
+      background: $color-bg;
+    }
+
+    .st-group-row td:first-child {
+      position: sticky;
+      left: 0;
+      z-index: 2;
+      background: $color-bg;
+    }
+  }
+
+  &--scrolled .st-group-row td:first-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-right: 8px;
+  }
+
+  // ── Scroll shadows ──────────────────────────────────────────────────────────
+  &__shadow-wrapper {
+    pointer-events: none;
+    overflow: hidden;
+    position: absolute;
+    inset: 0;
+  }
+
+  &__shadow-left,
+  &__shadow-right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  &__shadow-left {
+    left: 0;
+    box-shadow: 8px 0 12px -4px rgba(0, 0, 0, 0.12);
+  }
+
+  &__shadow-right {
+    right: 0;
+    box-shadow: -8px 0 12px -4px rgba(0, 0, 0, 0.12);
+  }
+}

@@ -1,0 +1,15 @@
+@use 'variables' as *;
+
+.loader {
+  display: inline-flex;
+  color: currentColor;
+
+  svg {
+    animation: loader-spin 0.8s linear infinite;
+    transform-origin: center;
+  }
+}
+
+@keyframes loader-spin {
+  to { transform: rotate(360deg); }
+}

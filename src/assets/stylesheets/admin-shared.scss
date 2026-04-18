@@ -1,0 +1,56 @@
+@use 'variables' as *;
+
+.admin-list {
+  &__actions {
+    display: inline-flex;
+    justify-content: flex-end;
+    gap: 0.25rem;
+  }
+
+  &__add-form {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+
+    input[type='text'] {
+      flex: 1;
+      font-family: $font-sans;
+      font-size: 0.9rem;
+      padding: 0.4rem 0.75rem;
+      border: 1px solid $color-border;
+      border-radius: $radius;
+      background: none;
+      color: $color-text;
+      outline: none;
+
+      &:focus {
+        border-color: $color-text;
+      }
+    }
+  }
+
+  &__color-swatch {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  &__color-input {
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    border: 1px solid $color-border;
+    border-radius: $radius;
+    background: none;
+    cursor: pointer;
+    flex-shrink: 0;
+    overflow: hidden;
+    vertical-align: middle;
+
+    &::-webkit-color-swatch-wrapper { padding: 0; }
+    &::-webkit-color-swatch { border: none; border-radius: calc(#{$radius} - 1px); }
+  }
+}

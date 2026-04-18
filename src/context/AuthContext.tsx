@@ -1,6 +1,8 @@
+'use client'
+
 import { createContext, useContext, useEffect, useState } from 'react'
-import { onAuthStateChanged, User } from 'firebase/auth'
-import { auth } from '../firebase'
+import { User } from 'firebase/auth'
+import { onAuthChanged } from '@/firebase/auth'
 
 interface AuthContextType {
   user: User | null
@@ -14,9 +16,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, currentUser => {
+    const unsubscribe = onAuthChanged(async currentUser => {
       setUser(currentUser)
       setLoading(false)
+      if (currentUser) {
+        const token = await currentUser.getIdToken()
+        document.cookie = `__firebase_token=${token}; path=/; SameSite=Strict; max-age=3600`
+      } else {
+        document.cookie = `__firebase_token=; path=/; max-age=0`
+      }
     })
     return unsubscribe
   }, [])

@@ -1,0 +1,21 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isOwner() {
+      return request.auth != null && request.auth.token.email == 'vpham@manager.one';
+    }
+
+    match /posts/{postId} {
+      allow read: if resource.data.published == true || isOwner();
+      allow write: if isOwner();
+    }
+
+    match /tags/{tagId} {
+      allow read: if true;
+      allow write: if isOwner();
+    }
+
+  }
+}
