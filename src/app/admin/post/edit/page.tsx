@@ -1,17 +1,14 @@
 'use client'
 
 import { useTranslation } from 'react-i18next'
-import { useRouter } from 'next/navigation'
 import { updatePost } from '@/firebase/posts'
 import { PostBase } from '@/types/post'
-import { routes } from '@/routes'
 import { useAdminPost } from '@/hooks/useAdminPost'
 import PostForm from '@/views/Admin/PostForm/PostForm'
 import Loader from '@/components/ui/Loader'
 
 export default function EditPostPage() {
   const { t } = useTranslation()
-  const router = useRouter()
   const { id, post } = useAdminPost()
 
   const handleSubmit = async (data: PostBase) => {

@@ -212,7 +212,7 @@ export function Tooltip({ content, info }: TooltipProps) {
           <span>{info}</span>
         )}
       </div>,
-      document.body
+      document.body,
     );
   };
 

@@ -22,7 +22,7 @@ export default function AdminPostsPage() {
   useEffect(() => {
     setAction(<Button as="link" to={routes.AdminNewPost}>New</Button>)
     return () => setAction(null)
-  }, [])
+  }, [setAction])
 
   const handleToggle = async (post: Post) => {
     await togglePostPublished(post)

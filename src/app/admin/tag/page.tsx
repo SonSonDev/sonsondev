@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Trash, Check, Xmark } from 'iconoir-react'
+import { Trash, Check } from 'iconoir-react'
 import { fetchAllTags, addTag, updateTag, deleteTag } from '@/firebase/tags'
 import { Tag } from '@/types/tag'
 import Button from '@/components/ui/Button'

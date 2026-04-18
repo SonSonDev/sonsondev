@@ -10,7 +10,7 @@ export default function PageTransition({ children }: { children: React.ReactNode
   useEffect(() => {
     ref.current?.animate(
       [{ opacity: 0 }, { opacity: 1 }],
-      { duration: 500, easing: 'ease', fill: 'forwards' }
+      { duration: 500, easing: 'ease', fill: 'forwards' },
     )
   }, [pathname])
 
